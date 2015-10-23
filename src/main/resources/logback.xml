@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%date [%5p] - %25c - %m%n</pattern>
+        </encoder>
+    </appender>
+    <appender name="FILE" class="com.ziroom.tech.scaffold.boot.log.logback.appender.PlatformRollingFileAppender">
+        <rollingPolicy class="com.ziroom.tech.scaffold.boot.log.logback.appender.PlatformTimeBasedRollingPolicy">
+            <fileNamePattern>test-one.log.%d{yyyy-MM-dd}</fileNamePattern>
+            <maxHistory>7</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%date [%5p] - %25c - %m%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="${test-one.log.level}">
+        <appender-ref ref="FILE"/>
+    </root>
+</configuration>

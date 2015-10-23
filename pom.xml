@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <!--━━━━━━神兽出没━━━━━━-->
+    <!--　　　┏┓　　　┏┓-->
+    <!--　　┏┛┻━━━┛┻┓-->
+    <!--　　┃　　　　　　　┃-->
+    <!--　　┃　　　━　　　┃-->
+    <!--　　┃　┳┛　┗┳　┃-->
+    <!--　　┃　　　　　　　┃-->
+    <!--　　┃　　　┻　　　┃-->
+    <!--　　┃　　　　　　　┃-->
+    <!--　　┗━┓　　　┏━┛-->
+    <!--　　　　┃　　　┃神兽保佑, 永无BUG!-->
+    <!--　　　　┃　　　┃Code is far away from bug with the animal protecting-->
+    <!--　　　　┃　　　┗━━━┓-->
+    <!--　　　　┃　　　　　　　┣┓-->
+    <!--　　　　┃　　　　　　　┏┛-->
+    <!--　　　　┗┓┓┏━┳┓┏┛-->
+    <!--　　　　　┃┫┫　┃┫┫-->
+    <!--　　　　　┗┻┛　┗┻┛-->
+    <!--━━━━━━感觉萌萌哒━━━━━━-->
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.ziroom.mvn</groupId>
+        <artifactId>mvn-mybatis-spring-web</artifactId>
+        <version>1.0.0-RELEASE</version>
+    </parent>
+
+    <groupId>com.tygg</groupId>
+    <artifactId>test-one</artifactId>
+    <packaging>war</packaging>
+    <version>1.0.0</version>
+    <name>test-one</name>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.ziroom.tech.hack</groupId>
+                <artifactId>hack-mybatis-generator-maven-plugin</artifactId>
+                <version>1.3.2.1</version>
+                <configuration>
+                    <overwrite>true</overwrite>
+                    <verbose>true</verbose>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>mysql</groupId>
+                        <artifactId>mysql-connector-java</artifactId>
+                        <version>5.1.36</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+        </plugins>
+        <finalName>test-one-web</finalName>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <excludes>
+                    <exclude>generatorConfig.xml</exclude>
+                </excludes>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <properties>
+                <test-one.jdbc.driver>com.mysql.jdbc.Driver</test-one.jdbc.driver>
+                <test-one.jdbc.password>nopass.2</test-one.jdbc.password>
+                <test-one.jdbc.url>jdbc:mysql://127.0.0.1:6015/test-one</test-one.jdbc.url>
+                <test-one.jdbc.username>test</test-one.jdbc.username>
+                <test-one.log.level>DEBUG</test-one.log.level>
+                <test-one.log.path>/tmp/logs/test-one</test-one.log.path>
+            </properties>
+        </profile>
+        <profile>
+            <id>test</id>
+            <properties>
+                <test-one.jdbc.driver>com.mysql.jdbc.Driver</test-one.jdbc.driver>
+                <test-one.jdbc.password>nopass.2</test-one.jdbc.password>
+                <test-one.jdbc.url>jdbc:mysql://127.0.0.1:6015/test-one</test-one.jdbc.url>
+                <test-one.jdbc.username>test</test-one.jdbc.username>
+                <test-one.log.level>DEBUG</test-one.log.level>
+                <test-one.log.path>/home/work/platform/logs/test-one</test-one.log.path>
+            </properties>
+        </profile>
+        <profile>
+            <id>release</id>
+            <properties>
+                <test-one.jdbc.driver>com.mysql.jdbc.Driver</test-one.jdbc.driver>
+                <test-one.jdbc.password>nopass.2</test-one.jdbc.password>
+                <test-one.jdbc.url>jdbc:mysql://127.0.0.1:6015/test-one</test-one.jdbc.url>
+                <test-one.jdbc.username>test</test-one.jdbc.username>
+                <test-one.log.level>DEBUG</test-one.log.level>
+                <test-one.log.path>/home/work/platform/logs/test-one</test-one.log.path>
+            </properties>
+        </profile>
+    </profiles>
+</project>
